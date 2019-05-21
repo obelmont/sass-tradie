@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+/**
+ *  Border Radius
+ *
+ *  @variables: $radius (px, em, rem value)
+ */
+
+@mixin border-radius($radius:.25em) {
+  border-radius: $radius;
+}

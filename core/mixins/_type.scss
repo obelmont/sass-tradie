@@ -1,3 +1,41 @@
+@charset "UTF-8";
+
+// Type Mixin
+//
+// @argument {array} $fs-map - font size map
+// @argument {array} $fs-breakpoints [$breakpoints] - breakpoint map
+//
+// Example usage:
+//
+// the $breakpoints variable is found in core/config/breakpoints.
+//
+// $base-font-sizes: (
+//   null  : (12px, 1.5),
+//   small : 1.298vw,
+//   medium: 16px
+// );
+//
+// .p{
+//   @include font-size($base-font-sizes);
+// }
+//
+// Results:
+//
+// p {
+//   font-size: 12px;
+//   line-height: 1.5;
+// }
+// @media screen and (min-width: 300px) {
+//   p {
+//     font-size: 1.298vw;
+//   }
+// }
+// @media screen and (min-width: 500px) {
+//   p {
+//     font-size: 16px;
+//   }
+// }
+
 //Set Font sizes
 @mixin font-size($fs-map, $fs-breakpoints: $breakpoints) {
  @each $fs-breakpoint, $fs-font-size in $fs-map {
@@ -17,7 +55,12 @@
  }
 }
 
+
 // Utility function for mixin font-size
+//
+// @argument {string} $fs-font-size - font size taken from $fs-map loop
+//
+
 @mixin make-font-size($fs-font-size) {
  // If $fs-font-size is a list, include
  // both font-size and line-height

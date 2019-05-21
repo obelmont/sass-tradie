@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+/**
+ *  Center element
+ *  NB: parent element must have position: relative;
+ *
+ *  @variables: xy, x, y
+ *  Default: xy
+ */
+
+@mixin center($xy:xy) {
+  position:absolute;
+  @if $xy == xy {
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  @else if $xy == x {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+  @else if $xy == y {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+  }
+}

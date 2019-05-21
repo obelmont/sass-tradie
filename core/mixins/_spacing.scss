@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+// Spacing mixin
+// 
+// @argument {string} $attribute - css element
+// @argument {array} $s-map - spacing size map
+// @argument {array} $s-breakpoints [$breakpoints] - breakpoint map
+//
+// Example usage:
+//
+// the $breakpoints variable is found in core/config/breakpoints.
+//
+// $purple-spacing: (
+//   null  : (20px),
+//   small : 20px,
+//   medium: 40px
+// );
+//
+// .test{
+//   @include spacing(padding-bottom, $purple-spacing);
+// }
+//
+// Results:
+//
+// .test {
+//   padding-bottom: 20px;
+// }
+// @media screen and (min-width: 300px) {
+//   .test {
+//     padding-bottom: 20px;
+//   }
+// }
+// @media screen and (min-width: 500px) {
+//   .test {
+//     padding-bottom: 40px;
+//   }
+// }
+// @media screen and (min-width: 800px) {
+//   .test {
+//     padding-bottom: 60px;
+//   }
+// }
+ 
+//Set Spacing sizes
+@mixin spacing($attribute, $s-map, $s-breakpoints: $breakpoints) {
+  @each $s-breakpoint, $s-spacing-size in $s-map {
+    @if $s-breakpoint == null {
+      @include make-spacing($s-spacing-size, $attribute);
+    }
+    @else {
+      // If $s-font-size is a key that exists in
+      // $s-breakpoints, use the value
+      @if map-has-key($s-breakpoints, $s-breakpoint) {
+        $s-breakpoint: map-get($s-breakpoints, $s-breakpoint);
+      }
+      @media screen and (min-width: $s-breakpoint) {
+        @include make-spacing($s-spacing-size, $attribute);
+      }
+    }
+  }
+}
+
+// Utility function for mixin spacing
+@mixin make-spacing($s-spacing-size, $attribute) {
+
+  // If conditions for selecting attribute
+  #{$attribute}: $s-spacing-size;
+}

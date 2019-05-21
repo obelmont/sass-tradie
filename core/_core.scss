@@ -1,1 +1,10 @@
-_core.scss
+@charset "UTF-8";
+
+// Helpers
+@import "helpers/config";
+
+// Mixins
+@import "mixins/bem";
+@import "mixins/color";
+@import "mixins/spacing";
+@import "mixins/type";

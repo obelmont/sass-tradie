@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+// Color function
+//
+// @argument {string} $request - color
+// @return {color}
+//
+// Example usage:
+//
+// $_color: (
+//   white: #ffffff,
+//   black: #000000
+// );
+//
+// .test{
+//   color: color('white');
+//   background: color(mist);
+// }
+
+@function color($request) {
+  @return config($_color, $request);
+}

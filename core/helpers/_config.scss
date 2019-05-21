@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+// map-get util function
+// 
+// @argument {array} $map
+// @argument {string} $key
+// @return {value}
+
+@function config($map, $key) {
+  @return map-get($map, $key);
+}
