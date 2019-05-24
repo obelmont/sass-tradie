@@ -1,0 +1,20 @@
+{
+  "name": "sass-tradie",
+  "version": "0.1.0",
+  "description": "a set of useful sass tools",
+  "main": "index.js",
+  "style": "core/_tradie.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://obelmont@github.com/obelmont/sass-utils.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/obelmont/sass-utils/issues"
+  },
+  "homepage": "https://github.com/obelmont/sass-utils#readme"
+}
