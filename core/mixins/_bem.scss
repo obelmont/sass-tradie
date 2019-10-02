@@ -75,10 +75,10 @@ $bem-pseudo-separator: ':';
 }
 
 @mixin m($modifier) {
-  $class-name: selector-append(&, $bem-modifier-separator, $modifier);
+  $class-name: #{&}--#{$modifier};
 
   @if str-index($modifier, $bem-pseudo-separator) == 1 {
-    $class-name: selector-append(&, $modifier);
+    $class-name: #{&}#{$modifier};
   }
 
   @at-root #{$class-name} {
